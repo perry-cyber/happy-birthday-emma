@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    position: relative;
+    min-height: 100vh;
+    overflow: auto; /* Allow scrolling */
+}
+
+/* Blurry Background Image */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('background.webp'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Apply blur to the background */
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header span {
+    font-size: 14px;
+    color: #777;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of nav items for smaller screens */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap; /* Enables stacking on small devices */
+}
+
+.content {
+    width: 50%;
+    z-index: 1; /* Make sure content is on top of the blurred background */
+    min-width: 300px;
+}
+
+.content h1 {
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    z-index: 1; /* Keeps the image above the blur effect */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        text-align: center;
+    }
+    
+    .content {
+        width: 100%; /* Full width for small screens */
+    }
+    
+    .image-section img {
+        max-width: 300px; /* Reduce image size for smaller screens */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header span {
+        margin-bottom: 10px;
+    }
+
+    .content h1 {
+        font-size: 36px; /* Smaller heading for small screens */
+    }
+
+    .content p {
+        font-size: 16px; /* Smaller font for paragraphs */
+    }
+
+    .btn {
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}
